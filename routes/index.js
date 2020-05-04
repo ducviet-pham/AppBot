@@ -25,7 +25,12 @@ function pasersJSON(data){
   vn_data.total_active_cases = vn_data_json.total_active_cases;
   vn_data.rank = vn_data_json.total_danger_rank;
   vn_data.total_serious_cases = vn_data_json.total_serious_cases;
-
-  return vn_data;
+  vn_data.deaths = vn_data_json.total_deaths;
+  return ' Tổng số ca nhiễm: ' +vn_data.total
+  +'\n Số ca mắc trong ngày: '+ vn_data.total_new_cases_today
+  +'\n Đang điều trị: '+ vn_data.total_active_cases
+  +'\n Tử vong: '+ vn_data.deaths
+  +'\n Số ca nghiêm trọng: '+ vn_data.total_serious_cases
+  +'\n Xếp hạng: '+ vn_data.rank;
 }
 module.exports = router;
