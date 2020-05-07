@@ -16,6 +16,16 @@ router.get('/nCov19', function(req, res, next) {
 
   }); 
 });
+router.get('/images', function(req, res, next) {
+  superagent.get('https://api.thevirustracker.com/free-api')
+  .query({ 'countryTotal': 'VN' })
+  .end((err, response) => {
+      if (err) { return console.log(err); }
+      res.send(pasersJSON(response.body))
+      res.end();
+
+  }); 
+});
 function pasersJSON(data){
   let vn_data_json = data.countrydata[0],
   vn_data = {};
